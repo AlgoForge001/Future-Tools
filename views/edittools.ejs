@@ -1,0 +1,16 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+    <form action="/tools/<%=tool._id%>?_method=PUT" method="post">
+        <input name="tool[title]" type="text" value="<%= tool.title%>">
+        <br>
+        <input name="tool[description]" type="text" value="<%=tool.description%>">
+        <br>
+        <input name="tool[img]" type="text" value="<%=tool.img%>">
+        <br>
+        <input name="tool[link]" type="text" value="<%=tool.link%>">
+        <br>
+        <button>Update Tool</button>
+    </form>
+    
+</body>

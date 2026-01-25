@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail</title>
-</head>
+<% layout("/layouts/boilerplate") %>
+
 <body>
     <h3>Detail</h3>
     <ul>
         <li><%= tool_details.title%></li>
         <li><%= tool_details.description%></li>
         <li><%= tool_details.img%></li>
+        <li><%= tool_details.category%></li>
     </ul>
-    
+    <a href="/tools/<%= tool_details._id%>/edit">Edit</a>
+    <form action="/tools/<%= tool_details._id %>?_method=DELETE" method="post">
+        <button>Delete Tool</button>
+    </form>
 </body>
-</html>
