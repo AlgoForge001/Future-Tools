@@ -9,7 +9,7 @@ const tools = [
         title: "Midjourney",
         description: "High-quality AI image generation for artists and designers.",
         link: "https://www.midjourney.com",
-        img: "https://www.midjourney.com/favicon.ico",
+        img: "/images/midjourney.png",
         category: "Image & Art"
     },
     {

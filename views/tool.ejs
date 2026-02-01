@@ -1,12 +1,43 @@
 <% layout("/layouts/boilerplate") %>
-<body>
-    <form action="tools/new" method="get">
-        <button>Add tools</button>
-    </form>
-    <ul>
-        <%for(let tools of allTools){ %>
-            <li><a href="/tools/<%= tools._id%>"><%= tools.title %></a></li>
-            <% } %>
-    </ul>
-    
-</body>
+
+    <header class="hero-section">
+        <div class="hero-left">
+            <h1 class="hero-headline">ARCHITECT <br> THE FUTURE.</h1>
+            <p class="hero-subtext">A clean, minimal AI decision platform for high-end creative engineering. Intelligent
+                flows, sharp execution, and zero noise.</p>
+        </div>
+        <div class="hero-right">
+            <div class="abstract-container">
+                <div class="abstract-element">
+                    <img src="/images/hero-abstract.png" alt="Abstract Geometric Vision">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="tools-grid">
+        <div class="container-fluid">
+            <div class="row row-cols-1 row-cols-md-3 g-5">
+                <% for (let tool of allTools) { %>
+                    <div class="col">
+                        <div class="tool-card">
+                            <!-- IMAGE -->
+                            <img src="<%= tool.image ? tool.image : '/images/default-tool.png' %>"
+                                alt="<%= tool.title %>">
+
+                            <div class="tool-card-body d-flex flex-column">
+                                <h5 class="tool-card-title">
+                                    <%= tool.title %>
+                                </h5>
+                                <div class="mt-auto">
+                                    <a href="/tools/<%= tool._id %>" class="btn-minimal">
+                                        Analyze Details
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+    </section>

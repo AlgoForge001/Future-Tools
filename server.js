@@ -124,6 +124,6 @@ app.use((err, req, res, next) => {
     res.status(statusCode).send(message);
 })
 
-app.listen(3000, () => {
-    console.log("Server is working on port 3000");
+app.listen(5000, () => {
+    console.log("Server is working on port 5000");
 }); 

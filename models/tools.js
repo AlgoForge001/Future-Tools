@@ -53,6 +53,12 @@ const toolsSchema = new Schema({
         ],
         default:"Productivity"
     },
+    reviews:[
+        {
+            type :Schema.Types.ObjectId,
+            ref:"comment",
+        },
+    ]
 
 });
 
