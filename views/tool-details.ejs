@@ -16,23 +16,23 @@
                 <%= tool_details.category%>
             </li>
         </ul>
-        <a href="/tools/<%= tool_details._id%>/edit">Edit</a>
-        <form action="/tools/<%= tool_details._id %>?_method=DELETE" method="post">
+        <a href="/tools/<%= tool_details.id%>/edit">Edit</a>
+        <form action="/tools/<%= tool_details.id %>?_method=DELETE" method="post">
             <button>Delete Tool</button>
         </form>
 
 
         <div>
-            <form>
+            <form action="/tools/<%= tool_details.id %>/reviews" method="post">
 
                 <div>
                     <label for="rating">Rating</label>
-                    <input type="range" min="1" max="5" id="rating" name="comment[rating]">
+                    <input type="range" min="1" max="5" id="rating" name="reviews[rating]">
                 </div>
 
                 <div>
                     <label for="comment">Comments</label>
-                    <textarea name="comment[comments]" id="comment"></textarea>
+                    <textarea name="reviews[comments]" id="reviews"></textarea>
                 </div>
                 <button>Add</button>
 

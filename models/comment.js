@@ -2,16 +2,18 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
-    comment : String,
+    comments : String,
+    rating:{
+        type : Number,
+        min: 1 ,
+        max : 5
+    },
     createdAt:{
         type :Date ,
         default: Date.now(),
     },
-    createdAt:{
-        type:Date ,
-        default : Date.now(),
-    }
+
 });
 
 
-module.exports =mongoose.model("Comment" , commentSchema);
+module.exports =mongoose.model("comment" , commentSchema);

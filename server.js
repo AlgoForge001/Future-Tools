@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const Tools = require("./models/tools.js");
+const Reviews = require("./models/comment.js")
 const path = require("path");
 const ejsMate = require("ejs-mate");
 const methodOverride = require("method-override");
@@ -109,6 +110,18 @@ app.delete("/tools/:id", async (req, res) => {
     await Tools.findByIdAndDelete(id);
     res.redirect("/tools");
 });
+
+//Review Model
+app.post("/tools/:id/reviews" , async(req ,res)=>{
+    let tool = await Tools.findById(req.params.id);
+    let newComment = new Reviews(req.body.reviews);
+
+    tool.reviews.push(newComment);
+    await newComment.save();
+    await tool.save();
+    console.log("Comment saved");
+    res.redirect("/tools");
+})
 
 
 
