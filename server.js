@@ -8,6 +8,7 @@ const ejsMate = require("ejs-mate");
 const methodOverride = require("method-override");
 const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressErrors = require("./utils/ExpressErrors.js");
+const reviewSchema = require("./schema.js");
 
 
 
@@ -52,6 +53,17 @@ async function main() {
 //     res.send("succseful test done");
 
 // })
+
+
+// const validateReview = (req , res, next)=>{
+//     let{error} = reviewSchema.validate(req.body);
+//     if(error){
+//         let errMsg = error.details.map((el)=> el.message).join(",");
+//         throw new ExpressErrors(400 ,errMsg);
+//     }else{
+//         next();
+//     }
+// };
 
 
 
@@ -120,7 +132,7 @@ app.post("/tools/:id/reviews" , async(req ,res)=>{
     await newComment.save();
     await tool.save();
     console.log("Comment saved");
-    res.redirect("/tools");
+    res.redirect(`/tools/${tool.id}`);
 })
 
 
