@@ -16,14 +16,14 @@
                 <%= tool_details.category%>
             </li>
         </ul>
-        <a href="/tools/<%= tool_details.id%>/edit">Edit</a>
-        <form action="/tools/<%= tool_details.id %>?_method=DELETE" method="post">
+        <a href="/tools/<%= tool_details._id%>/edit">Edit</a>
+        <form action="/tools/<%= tool_details._id %>?_method=DELETE" method="post">
             <button>Delete Tool</button>
         </form>
 
 
         <div>
-            <form action="/tools/<%= tool_details.id %>/reviews" method="post">
+            <form action="/tools/<%= tool_details._id %>/reviews" method="post">
 
                 <div>
                     <label for="rating">Rating</label>
